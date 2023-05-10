@@ -4,6 +4,7 @@ const express = require("express");
 const app = express();
 
 // Parse body for urlencoded (non-JSON) data
+app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // 404 handler
