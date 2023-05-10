@@ -1,20 +1,6 @@
-const { Client } = require("pg");
-const { getDatabaseUri } = require("./config");
-
-let db;
-
-if (process.env.NODE_ENV === "production") {
-    db = new Client({
-        connectionString: getDatabaseUri(),
-        ssl: {
-            rejectUnauthorized: false
-        }
-    });
-} else {
-    db = new Client({
-        connectionString: getDatabaseUri()
-    });
-}
+// Connect lucid to database
+const pg = require('pg');
+const db = new pg.Client("postgresql:///lucid_db");
 
 db.connect();
 
